@@ -206,7 +206,15 @@ namespace QuanLyBanQuanAo.GUI
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // Hiển thị hộp thoại và lấy kết quả lựa chọn của người dùng
+            DialogResult dr = MessageBox.Show("Bạn có muốn thoát?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Kiểm tra nếu người dùng chọn Yes
+            if (dr == DialogResult.Yes)
+            {
+                Application.Exit(); // Thoát toàn bộ chương trình
+                                    // Hoặc dùng: this.Close(); nếu chỉ muốn đóng Form hiện tại
+            }
         }
     }
 }
