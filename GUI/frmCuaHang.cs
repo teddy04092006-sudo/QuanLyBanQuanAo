@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -52,6 +52,9 @@ namespace QuanLyBanQuanAo.GUI
         // ================================================================ nạp dữ liệu
         private void frmCuaHang_Load(object sender, EventArgs e)
         {
+            new Function().TaoTuDong200AnhSanPham();
+            picCT.SizeMode = PictureBoxSizeMode.Zoom;
+
             DataTable dt = db.DocBang("SELECT MaLoai, TenLoai FROM tblLoaiThoiTrang ORDER BY TenLoai");
             DataRow tatCa = dt.NewRow();
             tatCa["MaLoai"] = "";
@@ -144,12 +147,7 @@ namespace QuanLyBanQuanAo.GUI
             if (cacheAnh.TryGetValue(tenFile, out img)) return img;
 
             string duongDan = Path.Combine(Application.StartupPath, "Images", "QuanAo", tenFile);
-            img = null;
-            if (File.Exists(duongDan))
-            {
-                try { img = Image.FromStream(new MemoryStream(File.ReadAllBytes(duongDan))); }   // không khóa file
-                catch (Exception) { img = null; }
-            }
+            img = Function.LayAnhKhongKhoaFile(duongDan);
             cacheAnh[tenFile] = img;
             return img;
         }

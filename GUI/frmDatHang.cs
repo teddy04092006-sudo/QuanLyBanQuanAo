@@ -1,4 +1,4 @@
-﻿using QuanLyBanQuanAo.BLL;
+using QuanLyBanQuanAo.BLL;
 using QuanLyBanQuanAo.DAL;
 using System;
 using System.Collections.Generic;
@@ -22,10 +22,14 @@ namespace QuanLyBanQuanAo.GUI
         public frmDatHang()
         {
             InitializeComponent();
+            this.dgvSanPham.CellClick += new DataGridViewCellEventHandler(this.dgvSanPham_CellClick);
             Theme.Apply(this);
         }
         private void frmDatHang_Load(object sender, EventArgs e)
         {
+            func.TaoTuDong200AnhSanPham();
+            picXemTruoc.SizeMode = PictureBoxSizeMode.Zoom;
+
             // Load danh mục loại thời trang để người mua lọc sản phẩm
             func.FillCombo("SELECT MaLoai, TenLoai FROM tblLoaiThoiTrang", cboLocLoaiThoiTrang, "MaLoai", "TenLoai");
             LoadSanPham("");
@@ -92,30 +96,44 @@ namespace QuanLyBanQuanAo.GUI
 
         }
 
-        private void dgvSanPham_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void HienThiXemTruocSanPham()
         {
-            if (e.RowIndex < 0 || dgvSanPham.CurrentRow == null) return;
+            if (dgvSanPham.CurrentRow == null) return;
 
-            string tenQA = dgvSanPham.CurrentRow.Cells["TenQuanAo"].Value.ToString();
-            string loai = dgvSanPham.CurrentRow.Cells["TenLoai"].Value.ToString();
-            string chatLieu = dgvSanPham.CurrentRow.Cells["TenChatLieu"].Value.ToString();
-            string size = dgvSanPham.CurrentRow.Cells["KichCo"].Value.ToString();
-            string mau = dgvSanPham.CurrentRow.Cells["MauSac"].Value.ToString();
-            double giaBan = Convert.ToDouble(dgvSanPham.CurrentRow.Cells["DonGiaBan"].Value);
-            string fileAnh = dgvSanPham.CurrentRow.Cells["Anh"].Value.ToString();
+            string tenQA = dgvSanPham.CurrentRow.Cells["TenQuanAo"].Value != null ? dgvSanPham.CurrentRow.Cells["TenQuanAo"].Value.ToString() : "";
+            string loai = dgvSanPham.CurrentRow.Cells["TenLoai"].Value != null ? dgvSanPham.CurrentRow.Cells["TenLoai"].Value.ToString() : "";
+            string chatLieu = dgvSanPham.CurrentRow.Cells["TenChatLieu"].Value != null ? dgvSanPham.CurrentRow.Cells["TenChatLieu"].Value.ToString() : "";
+            string size = dgvSanPham.CurrentRow.Cells["KichCo"].Value != null ? dgvSanPham.CurrentRow.Cells["KichCo"].Value.ToString() : "";
+            string mau = dgvSanPham.CurrentRow.Cells["MauSac"].Value != null ? dgvSanPham.CurrentRow.Cells["MauSac"].Value.ToString() : "";
+            double giaBan = 0;
+            if (dgvSanPham.CurrentRow.Cells["DonGiaBan"].Value != null)
+            {
+                double.TryParse(dgvSanPham.CurrentRow.Cells["DonGiaBan"].Value.ToString(), out giaBan);
+            }
+            string fileAnh = dgvSanPham.CurrentRow.Cells["Anh"].Value != null ? dgvSanPham.CurrentRow.Cells["Anh"].Value.ToString() : "";
 
             lblThongTinSP.Text = string.Format("Sản phẩm: {0}\nLoại: {1} | Chất liệu: {2}\nKích cỡ: {3} | Màu: {4}\nĐơn giá: {5:N0} VNĐ",
                 tenQA, loai, chatLieu, size, mau, giaBan);
 
-            string duongDanAnh = Application.StartupPath + "\\Images\\QuanAo\\" + fileAnh;
-            if (!string.IsNullOrEmpty(fileAnh) && File.Exists(duongDanAnh))
+            string duongDanAnh = Path.Combine(Application.StartupPath, "Images", "QuanAo", fileAnh);
+            if (picXemTruoc.Image != null)
             {
-                picXemTruoc.Image = Image.FromFile(duongDanAnh);
-            }
-            else
-            {
+                picXemTruoc.Image.Dispose();
                 picXemTruoc.Image = null;
             }
+            picXemTruoc.Image = Function.LayAnhKhongKhoaFile(duongDanAnh);
+        }
+
+        private void dgvSanPham_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            HienThiXemTruocSanPham();
+        }
+
+        private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            HienThiXemTruocSanPham();
         }
         private void txtDienThoai_Leave(object sender, EventArgs e)
         {

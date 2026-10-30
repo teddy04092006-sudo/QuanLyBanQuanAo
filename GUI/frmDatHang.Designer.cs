@@ -1,4 +1,4 @@
-﻿namespace QuanLyBanQuanAo.GUI
+namespace QuanLyBanQuanAo.GUI
 {
     partial class frmDatHang
     {
@@ -83,7 +83,7 @@
             this.picXemTruoc.Location = new System.Drawing.Point(27, 337);
             this.picXemTruoc.Name = "picXemTruoc";
             this.picXemTruoc.Size = new System.Drawing.Size(754, 481);
-            this.picXemTruoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picXemTruoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picXemTruoc.TabIndex = 2;
             this.picXemTruoc.TabStop = false;
             // 

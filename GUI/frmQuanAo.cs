@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -35,6 +35,8 @@ namespace QuanLyBanQuanAo.GUI
 
         private void frmQuanAo_Load(object sender, EventArgs e)
         {
+            func.TaoTuDong200AnhSanPham();
+
             // Đổ dữ liệu vào ComboBox Loại thời trang và Chất liệu
             func.FillCombo("SELECT MaLoai, TenLoai FROM tblLoaiThoiTrang", cboLoaiThoiTrang, "MaLoai", "TenLoai");
             func.FillCombo("SELECT MaChatLieu, TenChatLieu FROM tblChatLieu", cboChatLieu, "MaChatLieu", "TenChatLieu");
@@ -42,7 +44,7 @@ namespace QuanLyBanQuanAo.GUI
             cboKichCo.Items.Clear();
             cboKichCo.Items.AddRange(new string[] { "S", "M", "L", "XL", "XXL" });
 
-            picAnh.SizeMode = PictureBoxSizeMode.StretchImage;
+            picAnh.SizeMode = PictureBoxSizeMode.Zoom;
 
             LoadDataGridView();
             ResetValues();
@@ -106,17 +108,12 @@ namespace QuanLyBanQuanAo.GUI
         // Hàm nạp ảnh không gây khóa file trên ổ cứng
         private void HienThiAnh(string duongDan)
         {
-            if (!string.IsNullOrEmpty(duongDan) && File.Exists(duongDan))
+            if (picAnh.Image != null)
             {
-                using (FileStream fs = new FileStream(duongDan, FileMode.Open, FileAccess.Read))
-                {
-                    picAnh.Image = Image.FromStream(fs);
-                }
-            }
-            else
-            {
+                picAnh.Image.Dispose();
                 picAnh.Image = null;
             }
+            picAnh.Image = Function.LayAnhKhongKhoaFile(duongDan);
         }
 
         // Click vào 1 dòng trên DataGridView -> Đổ dữ liệu lên các ô và bật nút Sửa, Xóa

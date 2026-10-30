@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -15,6 +15,8 @@ namespace QuanLyBanQuanAo.GUI
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            new Function().TaoTuDong200AnhSanPham();
+
             Theme.StyleMenu(menuStrip1);
             TaoNenVaTrangThai();
 

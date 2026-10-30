@@ -48,7 +48,6 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuDanhMuc,
@@ -57,8 +56,8 @@
             this.mnuThoat});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 40);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(962, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -71,41 +70,41 @@
             this.mnuKhachHang,
             this.mnuNhanVien});
             this.mnuDanhMuc.Name = "mnuDanhMuc";
-            this.mnuDanhMuc.Size = new System.Drawing.Size(144, 36);
+            this.mnuDanhMuc.Size = new System.Drawing.Size(74, 22);
             this.mnuDanhMuc.Text = "Danh mục";
             // 
             // mnuQuanAo
             // 
             this.mnuQuanAo.Name = "mnuQuanAo";
-            this.mnuQuanAo.Size = new System.Drawing.Size(302, 44);
+            this.mnuQuanAo.Size = new System.Drawing.Size(151, 22);
             this.mnuQuanAo.Text = "Quần áo";
             this.mnuQuanAo.Click += new System.EventHandler(this.quầnÁoToolStripMenuItem_Click);
             // 
             // mnuLoaiThoiTrang
             // 
             this.mnuLoaiThoiTrang.Name = "mnuLoaiThoiTrang";
-            this.mnuLoaiThoiTrang.Size = new System.Drawing.Size(302, 44);
+            this.mnuLoaiThoiTrang.Size = new System.Drawing.Size(151, 22);
             this.mnuLoaiThoiTrang.Text = "Loại thời trang";
             this.mnuLoaiThoiTrang.Click += new System.EventHandler(this.mnuLoaiThoiTrang_Click);
             // 
             // mnuChatLieu
             // 
             this.mnuChatLieu.Name = "mnuChatLieu";
-            this.mnuChatLieu.Size = new System.Drawing.Size(302, 44);
+            this.mnuChatLieu.Size = new System.Drawing.Size(151, 22);
             this.mnuChatLieu.Text = "Chất liệu";
             this.mnuChatLieu.Click += new System.EventHandler(this.mnuChatLieu_Click);
             // 
             // mnuKhachHang
             // 
             this.mnuKhachHang.Name = "mnuKhachHang";
-            this.mnuKhachHang.Size = new System.Drawing.Size(302, 44);
+            this.mnuKhachHang.Size = new System.Drawing.Size(151, 22);
             this.mnuKhachHang.Text = "Khách hàng";
             this.mnuKhachHang.Click += new System.EventHandler(this.mnuKhachHang_Click);
             // 
             // mnuNhanVien
             // 
             this.mnuNhanVien.Name = "mnuNhanVien";
-            this.mnuNhanVien.Size = new System.Drawing.Size(302, 44);
+            this.mnuNhanVien.Size = new System.Drawing.Size(151, 22);
             this.mnuNhanVien.Text = "Nhân viên";
             this.mnuNhanVien.Click += new System.EventHandler(this.mnuNhanVien_Click);
             // 
@@ -115,20 +114,20 @@
             this.mnuLapHoaDon,
             this.mnuDatHang});
             this.mnuHoaDon.Name = "mnuHoaDon";
-            this.mnuHoaDon.Size = new System.Drawing.Size(126, 36);
+            this.mnuHoaDon.Size = new System.Drawing.Size(65, 22);
             this.mnuHoaDon.Text = "Hóa đơn";
             // 
             // mnuLapHoaDon
             // 
             this.mnuLapHoaDon.Name = "mnuLapHoaDon";
-            this.mnuLapHoaDon.Size = new System.Drawing.Size(443, 44);
+            this.mnuLapHoaDon.Size = new System.Drawing.Size(219, 22);
             this.mnuLapHoaDon.Text = "Quản lý đơn hàng & hóa đơn";
             this.mnuLapHoaDon.Click += new System.EventHandler(this.mnuLapHoaDon_Click);
             // 
             // mnuDatHang
             // 
             this.mnuDatHang.Name = "mnuDatHang";
-            this.mnuDatHang.Size = new System.Drawing.Size(443, 44);
+            this.mnuDatHang.Size = new System.Drawing.Size(219, 22);
             this.mnuDatHang.Text = "Đặt mua quần áo";
             this.mnuDatHang.Click += new System.EventHandler(this.mnuDatHang_Click);
             // 
@@ -137,20 +136,20 @@
             this.mnuThongKe.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuDoanhThu});
             this.mnuThongKe.Name = "mnuThongKe";
-            this.mnuThongKe.Size = new System.Drawing.Size(135, 36);
+            this.mnuThongKe.Size = new System.Drawing.Size(68, 22);
             this.mnuThongKe.Text = "Thống kê";
             // 
             // mnuDoanhThu
             // 
             this.mnuDoanhThu.Name = "mnuDoanhThu";
-            this.mnuDoanhThu.Size = new System.Drawing.Size(349, 44);
+            this.mnuDoanhThu.Size = new System.Drawing.Size(174, 22);
             this.mnuDoanhThu.Text = "Báo cáo doanh thu";
             this.mnuDoanhThu.Click += new System.EventHandler(this.mnuDoanhThu_Click);
             // 
             // mnuThoat
             // 
             this.mnuThoat.Name = "mnuThoat";
-            this.mnuThoat.Size = new System.Drawing.Size(95, 36);
+            this.mnuThoat.Size = new System.Drawing.Size(49, 22);
             this.mnuThoat.Text = "Thoát";
             this.mnuThoat.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -162,13 +161,13 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1052);
+            this.ClientSize = new System.Drawing.Size(962, 547);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "frmMain";
             this.Text = "frmMain";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

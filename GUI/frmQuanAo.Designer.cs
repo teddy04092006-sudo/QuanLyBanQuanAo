@@ -1,4 +1,4 @@
-﻿namespace QuanLyBanQuanAo.GUI
+namespace QuanLyBanQuanAo.GUI
 {
     partial class frmQuanAo
     {
@@ -257,7 +257,7 @@
             this.picAnh.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.picAnh.Name = "picAnh";
             this.picAnh.Size = new System.Drawing.Size(1091, 632);
-            this.picAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picAnh.TabIndex = 20;
             this.picAnh.TabStop = false;
             // 
